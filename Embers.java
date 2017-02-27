@@ -21,7 +21,8 @@ public class Embers extends ArrayList<Ember> {
 	}
 	
 	public void step(Forest forest) {
-		for (Ember t : this) t.step(forest);
+		Ember[] es = this.toArray(new Ember[this.size()]);
+		for (Ember t : es) t.step(forest);
 	}
 
 }
