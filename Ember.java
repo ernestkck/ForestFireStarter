@@ -7,7 +7,7 @@ import javax.swing.ImageIcon;
 public class Ember extends Item {
 
 	/*
-	 * Tree - model an ember within a forest. Eric McCreath 2017
+	 * Tree - model an tree within a forest. Eric McCreath 2017
 	 */
 	
 	
