@@ -35,7 +35,8 @@ public class Tree extends Item {
 	 */
 	@Override
 	public void step(Forest f) {
-		// add your code here
+		// add and modify code here
+                f.embers.add(new Ember(x,y)); 
 	}
 
 	public void draw(Graphics2D g2) {
