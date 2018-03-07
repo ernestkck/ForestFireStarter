@@ -35,8 +35,35 @@ public class Tree extends Item {
 	 */
 	@Override
 	public void step(Forest f) {
-		// add and modify code here
-                f.embers.add(new Ember(x,y)); 
+
+		if(state== TreeState.BURNOUT) return;
+
+		timeinstate ++;
+
+		if(state == TreeState.SOMEFIRE){
+			if(timeinstate > 50) {
+				state = TreeState.LOTSFIRE;
+				timeinstate = 0;
+			}
+			else{
+				f.embers.add(new Ember(x + f.wind - 0.5,y+f.wind-0.5));
+			}
+		}
+
+		if(state == TreeState.LOTSFIRE){
+			if(timeinstate > 100) state = TreeState.BURNOUT;
+			else{
+				f.embers.add(new Ember(x+f.wind-0.5,y+f.wind-0.5));
+				f.embers.add(new Ember(x+f.wind-0.5,y+f.wind-0.5));
+			}
+		}
+
+		if(state == TreeState.NOFIRE && f.embers.near(this, 8) ){
+			f.embers.add(new Ember(x,y));
+			state = TreeState.SOMEFIRE;
+		}
+
+
 	}
 
 	public void draw(Graphics2D g2) {

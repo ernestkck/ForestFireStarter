@@ -17,7 +17,7 @@ public class Ember extends Item {
 	
 	
 	static int startStepsToLive = 100;
-	static double wind = 1.0;
+
 	static Random r = new Random();
 	int stepsToLive;
 	
@@ -39,7 +39,13 @@ public class Ember extends Item {
 	
 	@Override
 	public void step(Forest f) {
-		// add your code here
+		x += f.wind;
+		x += r.nextInt(20) - 10;
+		y += r.nextInt(20) - 10;
+		stepsToLive --;
+		if(stepsToLive <= 0){
+			f.embers.remove(this);
+		}
 	}
 
 }

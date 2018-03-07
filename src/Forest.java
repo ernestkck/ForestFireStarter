@@ -9,6 +9,7 @@ public class Forest {
 	Embers embers;
 	Trees trees;
 	static Random r = new Random();
+	double wind = 1.0;
 
 	public Forest(double w, double h, int ntrees) {
 		embers = new Embers();
